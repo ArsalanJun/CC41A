@@ -1,0 +1,55 @@
+char command; 
+
+void setup() 
+{       
+  Serial.begin(9600);  //Set the baud rate to your Bluetooth module.
+}
+
+void loop(){
+  if(Serial.available() > 0){ 
+    command = Serial.read(); 
+   // Stop(); //initialize with motors stoped
+    //Change pin mode only if new command is different from previous.   
+    //Serial.println(command);
+    switch(command){
+    case 'F':  
+      forward();
+      break;
+    case 'B':  
+       back();
+      break;
+    case 'L':  
+      left();
+      break;
+    case 'R':
+      right();
+      break;
+    }
+  } 
+}
+
+void forward()
+{
+ Serial.println("Forward");
+}
+
+void back()
+{
+Serial.println("Back");
+}
+
+void left()
+{
+ Serial.println("Left");
+}
+
+void right()
+{
+ Serial.println("Right");
+}
+
+void Stop()
+{
+  Serial.println("Stop");
+}
+
